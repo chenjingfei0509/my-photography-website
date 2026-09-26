@@ -1,4 +1,5 @@
 import './style.css'
+import { gsap } from 'gsap'
 
 type Room={id:string; title:string; subtitle:string; cover:string; photos:string[]}
 const rooms:Room[]=[
@@ -33,3 +34,8 @@ window.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelector
 // Reusable entry-book gestures: pointer drag, edge taps, keyboard and touch
 let dragStartX=0,dragX=0,dragging=false;const dragThreshold=70;grid.addEventListener('pointerdown',(e)=>{dragging=true;dragStartX=e.clientX;dragX=0;grid.setPointerCapture(e.pointerId);grid.classList.add('is-dragging')});grid.addEventListener('pointermove',(e)=>{if(!dragging)return;dragX=e.clientX-dragStartX;grid.style.setProperty('--drag',`${dragX}px`)});function finishDrag(){if(!dragging)return;dragging=false;grid.classList.remove('is-dragging');grid.style.removeProperty('--drag');if(Math.abs(dragX)>dragThreshold){showEntryPage(entryPage+(dragX<0?1:-1))}}grid.addEventListener('pointerup',finishDrag);grid.addEventListener('pointercancel',finishDrag);grid.addEventListener('click',(e)=>{if(Math.abs(dragX)>dragThreshold){e.stopPropagation()}else{const rect=grid.getBoundingClientRect();if(e.clientX<rect.left+80)showEntryPage(entryPage-1);if(e.clientX>rect.right-80)showEntryPage(entryPage+1)}});window.addEventListener('keydown',(e)=>{if(e.key==='ArrowLeft')showEntryPage(entryPage-1);if(e.key==='ArrowRight')showEntryPage(entryPage+1);if(e.key==='Home')showEntryPage(0);if(e.key==='End')showEntryPage(roomEls.length-1)});
 rooms.forEach(r=>{const pre=new Image();pre.src=r.cover;r.photos.slice(0,3).forEach(p=>{const image=new Image();image.src=p})})
+
+
+// Keep the room CTA separate from the page gesture so it always opens the exhibition.
+document.querySelectorAll<HTMLElement>('.enter').forEach((el)=>el.addEventListener('click',(event)=>{event.stopPropagation();const room=el.closest<HTMLElement>('.room')?.dataset.room;if(room)openRoom(room)}))
+
