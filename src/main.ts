@@ -1,4 +1,5 @@
 import './style.css'
+import './gallery.css'
 import { createBook } from './book'
 
 type Room={id:string; title:string; subtitle:string; cover:string; photos:string[]}
@@ -23,6 +24,9 @@ function showWelcome(){welcome.hidden=false;welcome.classList.remove('leaving');
 welcome.querySelector('button')!.addEventListener('click',()=>{welcome.classList.add('leaving');window.setTimeout(()=>{welcome.hidden=true;siteMain.inert=false;document.body.classList.remove('welcoming');window.scrollTo(0,0);book.focus()},window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:700)});
 document.querySelector('.about')!.addEventListener('click',showWelcome);
 window.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelector<HTMLButtonElement>('.close')!.click()})
+
+
+
 
 
 
