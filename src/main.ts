@@ -5,11 +5,11 @@ import {createBook} from './book'
 type Room = { id:string; title:string; subtitle:string; cover:string; photos:string[]; date:string }
 const dates = ['2025.10.01','2026.03.28','2026.05.03','2026.06.27','2026.07.29']
 const rooms:Room[] = [
-{id:'coffee-book',title:'Coffee & Book',subtitle:'一段关于安静、阅读与午后光线的记录',cover:'/photos/1-coffee-book-cover.png',photos:[],date:dates[0]},
-{id:'city',title:'城市漫游指南',subtitle:'沿着街角、橱窗和晚风行走',cover:'/photos/2--cover.png',photos:[],date:dates[1]},
-{id:'bride',title:'落跑新娘',subtitle:'一场没有按剧本发生的婚礼',cover:'/photos/3--cover.png',photos:[],date:dates[2]},
-{id:'butterfly',title:'黄晶眼蝶',subtitle:'在野地里寻找轻盈的翅膀',cover:'/photos/4--cover.png',photos:[],date:dates[3]},
-{id:'her',title:'美丽的她',subtitle:'关于凝视、距离与被看见',cover:'/photos/5--cover.png',photos:[],date:dates[4]}]
+{id:'coffee-book',title:'Coffee & Book',subtitle:'一段关于安静、阅读与午后光线的记录',cover:'/photos/1-coffee-book-cover.png',photos:[],date:dates[0],photos:[]},
+{id:'city',title:'城市漫游指南',subtitle:'沿着街角、橱窗和晚风行走',cover:'/photos/2--cover.png',photos:[],date:dates[1],photos:[]},
+{id:'bride',title:'落跑新娘',subtitle:'一场没有按剧本发生的婚礼',cover:'/photos/3--cover.png',photos:[],date:dates[2],photos:[]},
+{id:'butterfly',title:'黄晶眼蝶',subtitle:'在野地里寻找轻盈的翅膀',cover:'/photos/4--cover.png',photos:[],date:dates[3],photos:[]},
+{id:'her',title:'美丽的她',subtitle:'关于凝视、距离与被看见',cover:'/photos/5--cover.png',photos:[],date:dates[4],photos:[]}]
 const files:Record<string,string[]>={'coffee-book':['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg'],'city':['1.jpg','2.jpg','3.png','4.jpg','5.png','6.png','7.png','8.png','9.png','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.png','22.png','23.png','24.png','25.png','26.png','27.jpg','28.png'],'bride':Array.from({length:34},(_,i)=>`${i+1}.jpg`),'butterfly':Array.from({length:30},(_,i)=>`${i+1}.jpg`),'her':['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.JPG','10.jpg','11.jpg','12.jpg','13.jpg','14.JPG','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.JPG','25.JPG','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg','38.jpg','39.JPG']}
 rooms.forEach(r=>{r.cover=import.meta.env.BASE_URL+r.cover.slice(1);r.photos=files[r.id].map(f=>`${import.meta.env.BASE_URL}photos/${r.id}/${f}`)})
 const app=document.querySelector<HTMLDivElement>('#app')!
@@ -31,6 +31,7 @@ function endDrag(e:PointerEvent){if(!dragging)return;dragging=false;const dx=e.c
 wall.addEventListener('pointerup',endDrag);wall.addEventListener('pointercancel',endDrag)
 window.addEventListener('keydown',e=>{if(modal.classList.contains('is-open')){if(e.key==='ArrowRight')movePage(1);if(e.key==='ArrowLeft')movePage(-1);if(e.key==='Home'&&activeRoom){activePage=0;renderPage()}if(e.key==='End'&&activeRoom){activePage=activeRoom.photos.length-1;renderPage()}if(e.key==='Escape')document.querySelector<HTMLButtonElement>('.close')!.click()}})
 rooms.forEach(r=>[r.cover,...r.photos].forEach(src=>{const image=new Image();image.src=src}))
+
 
 
 
