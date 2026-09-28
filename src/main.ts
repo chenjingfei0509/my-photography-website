@@ -11,7 +11,7 @@ const rooms:Room[] = [
 {id:'butterfly',title:'黄晶眼蝶',subtitle:'在野地里寻找轻盈的翅膀',cover:'/optimized/4--cover.png',photos:[],date:dates[3]},
 {id:'her',title:'美丽的她',subtitle:'关于凝视、距离与被看见',cover:'/optimized/5--cover.png',photos:[],date:dates[4]}]
 const files:Record<string,string[]>={'coffee-book':['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg'],'city':['1.jpg','2.jpg','3.png','4.jpg','5.png','6.png','7.png','8.png','9.png','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.png','22.png','23.png','24.png','25.png','26.png','27.jpg','28.png'],'bride':Array.from({length:34},(_,i)=>`${i+1}.jpg`),'butterfly':Array.from({length:30},(_,i)=>`${i+1}.jpg`),'her':['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.JPG','10.jpg','11.jpg','12.jpg','13.jpg','14.JPG','15.jpg','16.jpg','17.jpg','18.jpg','19.jpg','20.jpg','21.jpg','22.jpg','23.jpg','24.JPG','25.JPG','26.jpg','27.jpg','28.jpg','29.jpg','30.jpg','31.jpg','32.jpg','33.jpg','34.jpg','35.jpg','36.jpg','37.jpg','38.jpg','39.JPG']}
-rooms.forEach(r=>{r.cover=import.meta.env.BASE_URL+r.cover.slice(1);r.photos=files[r.id].map(f=>`${import.meta.env.BASE_URL}photos/${r.id}/${f}`)})
+rooms.forEach(r=>{r.cover=import.meta.env.BASE_URL+r.cover.slice(1);r.photos=files[r.id].map(f=>`${import.meta.env.BASE_URL}optimized/${r.id}/${f}`)})
 const imageCache=new Map<string,Promise<void>>();
 function preload(src:string){if(!imageCache.has(src)){imageCache.set(src,new Promise(resolve=>{const img=new Image();img.decoding='async';img.onload=()=>{if(img.decode)img.decode().catch(()=>{}).finally(resolve);else resolve()};img.onerror=()=>resolve();img.src=src}))}return imageCache.get(src)!}
 rooms.forEach(r=>r.photos.forEach(preload))
@@ -35,6 +35,7 @@ function endDrag(e:PointerEvent){if(!dragging)return;dragging=false;const dx=e.c
 wall.addEventListener('pointerup',endDrag);wall.addEventListener('pointercancel',endDrag)
 window.addEventListener('keydown',e=>{if(modal.classList.contains('is-open')){if(e.key==='ArrowRight')movePage(1);if(e.key==='ArrowLeft')movePage(-1);if(e.key==='Home'&&activeRoom){activePage=0;renderPage()}if(e.key==='End'&&activeRoom){activePage=activeRoom.photos.length-1;renderPage()}if(e.key==='Escape')document.querySelector<HTMLButtonElement>('.close')!.click()}})
 rooms.forEach(r=>[r.cover,...r.photos].forEach(src=>{const image=new Image();image.src=src}))
+
 
 
 
