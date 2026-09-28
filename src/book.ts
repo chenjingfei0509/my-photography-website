@@ -21,8 +21,9 @@ export function createBook(host:HTMLElement,pages:BookPage[],open:(id:string)=>v
  host.querySelectorAll<HTMLButtonElement>('[data-go]').forEach(b=>b.onclick=()=>{if(busy)return;const go=b.dataset.go;if(go==='first'||go==='last'){index=go==='first'?0:pages.length-1;render()}else turn(go==='next'?1:-1)});
  root.onkeydown=e=>{if((e.target as HTMLElement).closest('input,textarea'))return;if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();if(busy)return;if(e.key==='Home'||e.key==='End'){index=e.key==='Home'?0:pages.length-1;render()}else turn(e.key==='ArrowRight'?1:-1)}};
  host.querySelector<HTMLButtonElement>('.edge-left')!.onclick=e=>{if(e.detail===0)turn(-1)};host.querySelector<HTMLButtonElement>('.edge-right')!.onclick=e=>{if(e.detail===0)turn(1)};
- Promise.all(preloads).then(render);root.addEventListener('pointermove',e=>{const r=spread.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;spread.style.setProperty('--book-tilt',`${x*1.5}deg`);spread.style.setProperty('--book-lift',`${y*-3}px`)});root.addEventListener('pointerleave',()=>{spread.style.setProperty('--book-tilt','0deg');spread.style.setProperty('--book-lift','0px')});return {focus:()=>root.focus()};
+ render();root.addEventListener('pointermove',e=>{const r=spread.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;spread.style.setProperty('--book-tilt',`${x*1.5}deg`);spread.style.setProperty('--book-lift',`${y*-3}px`)});root.addEventListener('pointerleave',()=>{spread.style.setProperty('--book-tilt','0deg');spread.style.setProperty('--book-lift','0px')});return {focus:()=>root.focus()};
 }
+
 
 
 
