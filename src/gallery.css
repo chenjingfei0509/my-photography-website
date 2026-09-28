@@ -51,3 +51,4 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .modal .photo-wall{display:flex!important;align-items:center!important;justify-content:center!important;height:calc(100vh - 250px)!important;min-height:360px!important}
 .modal .photo-wall .shot.is-current{position:static!important;inset:auto!important;width:100%!important;height:100%!important;display:flex!important;visibility:visible!important;opacity:1!important;transform:none!important}
 .modal .photo-wall .shot.is-current img{position:static!important;visibility:visible!important;opacity:1!important;max-width:96%!important;max-height:calc(100% - 40px)!important;width:auto!important;height:auto!important;object-fit:contain!important}
+.modal .photo-wall .shot.is-current img{backface-visibility:hidden;will-change:opacity,transform}.modal .photo-wall{contain:layout paint}
