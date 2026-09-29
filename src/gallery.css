@@ -45,7 +45,7 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 /* centered book */
 .book-host{display:flex!important;justify-content:center!important;width:100%!important}.book-host .folio{width:min(1040px,92vw)!important;margin:0 auto!important}.book-host .spread{margin:0 auto!important;aspect-ratio:2/1!important;background:#fff!important}.book-host .folio-nav,.book-host .folio-help{text-align:center}
 @media(prefers-reduced-motion:reduce){.welcome-copy span,.welcome-copy strong,.welcome-copy i{animation:none;opacity:1;clip-path:none}.camera,.camera:after{animation:none!important;transition:none!important}.welcome.exposing:after{animation:none;opacity:0}}
-.book-host .spread{transform:translateY(var(--book-lift,0px)) rotateZ(var(--book-tilt,0deg));transition:transform .35s ease,box-shadow .35s ease}.book-host .spread:hover{box-shadow:0 22px 52px #26211c25!important}.book-host .edge:hover{background:linear-gradient(90deg,#0000000b,transparent)}.book-host .folio-art:hover img{filter:brightness(1.03) saturate(1.03)}
+.book-host .spread{transform:translateY(var(--book-lift,0px)) rotateZ(var(--book-tilt,0deg));transition:transform .35s ease,box-shadow .35s ease}.book-host .spread:hover{box-shadow:0 22px 52px #26211c25!important}.book-host .folio-art:hover img{filter:brightness(1.03) saturate(1.03)}
 .modal{z-index:100!important}.modal.is-open{visibility:visible!important}.modal .shot img{min-width:1px;min-height:1px}
 /* ensure the active photograph is visible in the lightbox */
 .modal .photo-wall{display:flex!important;align-items:center!important;justify-content:center!important;height:calc(100vh - 250px)!important;min-height:360px!important}
