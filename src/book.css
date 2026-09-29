@@ -5,3 +5,5 @@
 .book-host .edge-left::before{transform:scaleX(-1)}
 .book-host .edge:hover::before,.book-host .edge:focus-visible::before{opacity:1}
 @media(prefers-reduced-motion:reduce){.book-host .edge::before{transition:none}}
+/* Show the target spread directly; never expose a blank/backside rectangle. */
+.book-host .curl{display:none!important}.book-host .spread{transition:transform .35s ease,box-shadow .35s ease,opacity .35s ease}.book-host .spread.turning{animation:spreadArrive .42s cubic-bezier(.22,.8,.25,1)}@keyframes spreadArrive{0%{opacity:.72;transform:translateX(22px) scale(.985)}100%{opacity:1;transform:translateX(0) scale(1)}}
