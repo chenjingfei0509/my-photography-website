@@ -16,3 +16,5 @@
 .book-host .folio-text,.book-host .folio-art,.book-host .curl .strip>div,.book-host .curl .strip .back{background-color:#fff!important}.book-host .folio-text{background:linear-gradient(90deg,#fff 92%,#f3f3f3)!important}.book-host .curl .strip .back{background-image:none!important}
 /* Never let a cover bitmap travel across the spine during the curl. */
 .book-host .curl .strip .front,.book-host .curl .strip .back{background-image:none!important;background-color:#fff!important}.book-host .curl .strip{box-shadow:inset -1px 0 rgba(60,50,40,.08)}
+/* Target copy travels with the turning spread and stays above the paper shadow. */
+.book-host .folio-text{position:relative;z-index:8}.book-host .folio-text h2,.book-host .folio-text p,.book-host .folio-text button{position:relative;z-index:9}.book-host .curl{z-index:4}.book-host .folio-art{position:relative;z-index:2}
