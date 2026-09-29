@@ -12,3 +12,5 @@
 .book-host .curl .strip .back{background-color:#f7f3eb;box-shadow:inset 12px 0 22px rgba(50,40,30,.08)}
 /* Paper-only turning faces: artwork never shows through the back of a page. */
 .book-host .folio-text,.book-host .folio-art{background:#f7f3eb!important}.book-host .folio-text{background:linear-gradient(90deg,#f7f3eb 92%,#e9e3d8)!important}.book-host .folio-art{background:#f7f3eb!important}.book-host .curl .strip .back{background-image:none!important;background-color:#f7f3eb!important;background-image:linear-gradient(90deg,rgba(70,55,40,.08),transparent 22%,transparent 78%,rgba(70,55,40,.05))!important}.book-host .curl .strip .front{background-color:#f7f3eb!important}
+/* White paper spread */
+.book-host .folio-text,.book-host .folio-art,.book-host .curl .strip>div,.book-host .curl .strip .back{background-color:#fff!important}.book-host .folio-text{background:linear-gradient(90deg,#fff 92%,#f3f3f3)!important}.book-host .curl .strip .back{background-image:none!important}
