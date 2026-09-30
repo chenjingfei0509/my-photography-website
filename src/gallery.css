@@ -90,3 +90,11 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 
 .modal .photo-wall{justify-content:flex-start!important}
 
+
+/* gallery numbering and initial position */
+.modal .page-count{display:none!important}
+.modal .photo-wall{scroll-padding-inline:0!important}
+.modal .photo-wall .shot{padding:0 0 34px!important;overflow:visible!important}
+.modal .photo-wall .shot img{max-height:calc(100vh - 330px)!important}
+.modal .photo-wall .shot figcaption{bottom:2px!important;color:#555!important;font-size:11px!important;opacity:1!important;white-space:nowrap!important}
+
