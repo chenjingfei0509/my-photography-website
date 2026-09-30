@@ -80,3 +80,10 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .modal .photo-wall .shot{filter:none!important}
 .modal .photo-wall .shot:not(.is-current){filter:none!important}
 
+
+/* final gallery corrections */
+.modal .photo-wall .shot{opacity:1!important;filter:none!important}
+.modal .photo-wall .shot:not(.is-current){opacity:.92!important;transform:scale(.94)!important}
+.modal .photo-wall .shot.is-current{opacity:1!important;transform:scale(1)!important;z-index:2!important}
+.modal .photo-wall .shot img{filter:none!important;opacity:1!important}
+

@@ -61,3 +61,5 @@ window.addEventListener('keydown',e=>{if(modal.classList.contains('is-open')){if
 wall.addEventListener('click',e=>{if(modal.classList.contains('is-immersive') && e.target===wall){modal.classList.remove('is-immersive');return}const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot)return;if(!modal.classList.contains('is-immersive')){modal.classList.add('is-immersive');requestAnimationFrame(()=>shot.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}))}})
 
 wall.addEventListener('click',e=>{const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot||modal.classList.contains('is-immersive'))return;e.preventDefault();e.stopPropagation();modal.classList.add('is-immersive');shot.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest',inline:'center'})},true)
+
+wall.addEventListener('pointerup',e=>{const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot||modal.classList.contains('is-immersive'))return;modal.classList.add('is-immersive');shot.scrollIntoView({behavior:'auto',block:'nearest',inline:'center'})},true)
