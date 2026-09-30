@@ -87,3 +87,6 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .modal .photo-wall .shot.is-current{opacity:1!important;transform:scale(1)!important;z-index:2!important}
 .modal .photo-wall .shot img{filter:none!important;opacity:1!important}
 
+
+.modal .photo-wall{justify-content:flex-start!important}
+
