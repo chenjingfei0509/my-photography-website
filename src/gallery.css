@@ -55,21 +55,3 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 /* Minimal zine welcome visual */
 .welcome{background:#eee8dc url('/my-photography-website/welcome-poster.png') center/cover no-repeat!important}.welcome:before{opacity:.04!important}.welcome-copy,.camera{display:none!important}.welcome-enter{left:6.5vw!important;bottom:12%!important;background:#f4eee3dd!important;color:#222!important;border:1px solid #222!important;border-radius:0!important;padding:13px 19px!important;font:11px 'DM Mono',monospace!important;letter-spacing:.14em!important;box-shadow:4px 4px 0 #bd483655!important}.welcome-enter:hover{background:#bd4836!important;color:#fff!important;transform:translateY(-3px) rotate(-1deg)!important}.welcome-enter.pressed{transform:translateY(2px)!important}.welcome .archive{top:6%;left:6.5vw;color:#312b26;letter-spacing:.2em;mix-blend-mode:multiply}.welcome:after{content:'PORTRAITS / LITTLE THINGS';position:absolute;right:6vw;bottom:7%;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#433b35;opacity:.75;transform:rotate(-2deg)}
 @media(max-width:700px){.welcome{background-position:58% center!important}.welcome-enter{left:8vw!important;bottom:10%!important}.welcome:after{right:8vw;bottom:5%;font-size:8px}}
-/* horizontal photo rail: adjacent images are preloaded and follow the pointer */
-.modal .photo-wall{overflow:hidden!important;touch-action:pan-y!important;position:relative!important}
-.modal .photo-track{display:flex!important;width:300%!important;height:100%!important;transform:translate3d(calc(-33.333333% + var(--drag-x,0px)),0,0)!important;transition:transform .55s cubic-bezier(.22,.75,.2,1)!important;will-change:transform}
-.modal .photo-wall:active .photo-track{transition:none!important}
-.modal .photo-track .shot{flex:0 0 33.333333%!important;width:33.333333%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;opacity:.38!important;transform:scale(.92) rotate(var(--drag-rotate,0deg))!important;transition:opacity .45s ease,transform .45s ease!important}
-.modal .photo-track .shot.is-current{opacity:1!important;transform:scale(1) rotate(var(--drag-rotate,0deg))!important}
-.modal .photo-track .shot img{max-width:94%!important;max-height:calc(100% - 30px)!important;width:auto!important;height:auto!important;object-fit:contain!important}
-.modal .photo-track .shot-empty{visibility:hidden!important}
-@media(prefers-reduced-motion:reduce){.modal .photo-track{transition:none!important}.modal .photo-track .shot{transition:none!important}}
-/* horizontal photo rail */
-.modal .photo-wall{overflow:hidden!important;touch-action:pan-y!important;position:relative!important}
-.modal .photo-track{display:flex!important;width:300%!important;height:100%!important;transform:translate3d(calc(-33.333333% + var(--drag-x,0px)),0,0)!important;transition:transform .55s cubic-bezier(.22,.75,.2,1)!important;will-change:transform}
-.modal .photo-wall:active .photo-track{transition:none!important}
-.modal .photo-track .shot{flex:0 0 33.333333%!important;width:33.333333%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important;opacity:.38!important;transform:scale(.92) rotate(var(--drag-rotate,0deg))!important;transition:opacity .45s ease,transform .45s ease!important}
-.modal .photo-track .shot.is-current{opacity:1!important;transform:scale(1) rotate(var(--drag-rotate,0deg))!important}
-.modal .photo-track .shot img{max-width:94%!important;max-height:calc(100% - 30px)!important;width:auto!important;height:auto!important;object-fit:contain!important}
-.modal .photo-track .shot-empty{visibility:hidden!important}
-@media(prefers-reduced-motion:reduce){.modal .photo-track,.modal .photo-track .shot{transition:none!important}}
