@@ -76,3 +76,7 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 @media(max-width:700px){.modal .photo-wall{height:calc(100vh - 190px)!important;gap:18px!important}.modal .photo-wall .shot img{max-width:84vw!important;max-height:calc(100vh - 240px)!important}.modal.is-immersive .photo-wall{height:100vh!important}}
 @media(prefers-reduced-motion:reduce){.modal .photo-wall{scroll-behavior:auto!important}.modal .photo-wall .shot{transition:none!important}}
 
+
+.modal .photo-wall .shot{filter:none!important}
+.modal .photo-wall .shot:not(.is-current){filter:none!important}
+
