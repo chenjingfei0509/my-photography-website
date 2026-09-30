@@ -55,13 +55,3 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 /* Minimal zine welcome visual */
 .welcome{background:#eee8dc url('/my-photography-website/welcome-poster.png') center/cover no-repeat!important}.welcome:before{opacity:.04!important}.welcome-copy,.camera{display:none!important}.welcome-enter{left:6.5vw!important;bottom:12%!important;background:#f4eee3dd!important;color:#222!important;border:1px solid #222!important;border-radius:0!important;padding:13px 19px!important;font:11px 'DM Mono',monospace!important;letter-spacing:.14em!important;box-shadow:4px 4px 0 #bd483655!important}.welcome-enter:hover{background:#bd4836!important;color:#fff!important;transform:translateY(-3px) rotate(-1deg)!important}.welcome-enter.pressed{transform:translateY(2px)!important}.welcome .archive{top:6%;left:6.5vw;color:#312b26;letter-spacing:.2em;mix-blend-mode:multiply}.welcome:after{content:'PORTRAITS / LITTLE THINGS';position:absolute;right:6vw;bottom:7%;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#433b35;opacity:.75;transform:rotate(-2deg)}
 @media(max-width:700px){.welcome{background-position:58% center!important}.welcome-enter{left:8vw!important;bottom:10%!important}.welcome:after{right:8vw;bottom:5%;font-size:8px}}
-
-/* editorial magazine stack */
-.modal .photo-wall{position:relative!important;display:block!important;overflow:hidden!important;touch-action:pan-y!important}
-.modal .photo-wall .shot{position:absolute!important;inset:0!important;margin:auto!important;width:100%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;opacity:0!important;pointer-events:none!important;transform:translate3d(calc(var(--stack) * 26px),calc(var(--stack) * 10px),0) rotate(calc(var(--stack) * 2deg)) scale(.96)!important;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s ease,filter .4s ease!important;filter:saturate(.75)!important}
-.modal .photo-wall .shot.is-current{opacity:1!important;z-index:5!important;pointer-events:auto!important;transform:translate3d(0,0,0) rotate(0) scale(1)!important;filter:none!important;cursor:pointer}
-.modal .photo-wall .shot[data-offset='-1'],.modal .photo-wall .shot[data-offset='1']{opacity:.42!important;z-index:3!important}
-.modal .photo-wall .shot[data-offset='-2'],.modal .photo-wall .shot[data-offset='2']{opacity:.18!important;z-index:2!important}
-.modal .photo-wall .shot img{max-width:92%!important;max-height:calc(100% - 24px)!important;width:auto!important;height:auto!important;object-fit:contain!important}
-@media(prefers-reduced-motion:reduce){.modal .photo-wall .shot{transition:none!important}}
-
