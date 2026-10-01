@@ -35,3 +35,12 @@
 
 .book-host .curl.reverse{left:50%!important;transform-origin:left center!important}
 
+
+.book-host .curl{transform-style:preserve-3d;overflow:visible!important}
+.book-host .turn-sheet{position:absolute;inset:0;transform-style:preserve-3d;backface-visibility:visible;box-shadow:0 8px 22px rgba(20,15,10,.16)}
+.book-host .sheet-face{position:absolute;inset:0;background:#fff center/cover no-repeat;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;padding:12% 10%;color:#222}
+.book-host .sheet-back{transform:rotateY(180deg)}
+.book-host .sheet-text{background:#fff!important}
+.book-host .sheet-text h2{font:400 clamp(25px,4vw,56px)/1.15 Georgia,serif;margin:24px 0}
+.book-host .sheet-text p{font-size:14px;line-height:1.8;color:#666}
+
