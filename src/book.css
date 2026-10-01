@@ -32,3 +32,6 @@
 .book-host .curl.reverse{z-index:3!important}
 .book-host .curl.reverse .turn-copy{display:none!important}
 
+
+.book-host .curl.reverse{left:50%!important;transform-origin:left center!important}
+
