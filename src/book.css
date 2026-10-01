@@ -20,3 +20,8 @@
 .book-host .folio-text{position:relative;z-index:8}.book-host .folio-text h2,.book-host .folio-text p,.book-host .folio-text button{position:relative;z-index:9}.book-host .curl{z-index:4}.book-host .folio-art{position:relative;z-index:2}
 /* Copy printed on the turning sheet, with depth and edge shadows restored. */
 .book-host .curl{z-index:10;overflow:visible}.book-host .turn-copy{position:absolute;left:-100%;top:0;width:100%;height:100%;padding:12% 10%;display:flex;flex-direction:column;justify-content:center;background:#fff;color:#222;transform-origin:right center;transform:rotateY(180deg);backface-visibility:hidden;box-shadow:-18px 0 30px rgba(40,32,24,.12);pointer-events:none}.book-host .turn-copy span{font-size:12px;letter-spacing:.14em;color:#777}.book-host .turn-copy strong{font:400 clamp(25px,4vw,56px)/1.1 Georgia,serif;margin:24px 0}.book-host .turn-copy small{font:14px Georgia;color:#777}.book-host .curl .strip{box-shadow:inset 1px 0 rgba(60,50,40,.12),8px 0 14px rgba(30,25,20,.035)}.book-host .edge{z-index:20;cursor:pointer}.book-host .edge-left:hover,.book-host .edge-right:hover{background:linear-gradient(90deg,rgba(40,30,20,.06),transparent)}
+
+.book-host .curl.reverse{left:0!important;transform-origin:right center!important}
+.book-host .curl.reverse .strip{transform-origin:right center!important}
+.book-host .curl.reverse .turn-copy{left:100%!important;transform-origin:left center!important}
+
