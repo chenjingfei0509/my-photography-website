@@ -25,3 +25,6 @@
 .book-host .curl.reverse .strip{transform-origin:right center!important}
 .book-host .curl.reverse .turn-copy{left:100%!important;transform-origin:left center!important}
 
+
+.book-host .curl.reverse .turn-copy{left:0!important;top:0!important;width:100%!important;transform:none!important;z-index:30!important}
+
