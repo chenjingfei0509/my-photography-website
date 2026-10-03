@@ -146,3 +146,7 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .welcome .welcome-copy strong{font-family:"Segoe Print","Bradley Hand",cursive!important;font-size:1.35em!important;color:#b63b27!important;font-style:italic!important;transform:rotate(-3deg);margin-top:.08em;margin-left:2vw;white-space:nowrap}
 .welcome .welcome-copy i{font-family:"DM Mono",monospace!important;font-size:10px!important;color:#3b342e!important;letter-spacing:.12em!important;margin:1.5em 0 0 3vw!important}
 .welcome .water-zone{display:none!important}
+/* welcome composition scale adjustment */
+.welcome .welcome-copy{top:28%!important;font-size:clamp(58px,9vw,120px)!important}
+.welcome-enter{padding:16px 24px!important;font-size:12.5px!important}
+@media(max-width:700px){.welcome .welcome-copy{top:23%!important;font-size:clamp(48px,14vw,78px)!important}.welcome-enter{padding:15px 22px!important;font-size:12px!important}}
