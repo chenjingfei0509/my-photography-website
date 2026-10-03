@@ -114,3 +114,16 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 @media(max-width:700px){.welcome-notes{right:8vw;bottom:16%;font-size:8px}.focus-mark{right:10%;top:28%}}
 @media(prefers-reduced-motion:reduce){.welcome{transition:none!important}.welcome-notes,.focus-mark{animation:none;opacity:.7;transform:none}}
 
+
+/* local welcome interactions: foliage and water */
+.leaf-zone,.water-zone{position:absolute;z-index:2;pointer-events:none}
+.leaf-zone{right:3%;top:4%;width:42%;height:34%;border-radius:50%;transform-origin:72% 70%}
+.leaf-zone.near{animation:leafSway 1.8s ease-in-out infinite}
+.water-zone{left:20%;bottom:4%;width:60%;height:27%;overflow:hidden}
+.water-zone:before{content:'';position:absolute;inset:35% 8% 8%;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.18),transparent 68%);opacity:0;transition:opacity .5s}
+.water-zone.near:before{opacity:.65;animation:waterShimmer 2.6s ease-in-out infinite}
+.water-zone i{position:absolute;width:12px;height:6px;border:1px solid rgba(255,255,255,.65);border-radius:50%;transform:translate(-50%,-50%) scale(.2);animation:ripple 1.1s ease-out forwards}
+@keyframes leafSway{0%,100%{transform:rotate(0deg) translateX(0)}35%{transform:rotate(1.2deg) translateX(-3px)}70%{transform:rotate(-1deg) translateX(2px)}}
+@keyframes waterShimmer{50%{transform:translateX(2%) scaleY(1.04);opacity:.9}}
+@keyframes ripple{to{width:170px;height:55px;opacity:0;transform:translate(-50%,-50%) scale(1)}}
+@media(prefers-reduced-motion:reduce){.leaf-zone.near,.water-zone.near:before,.water-zone i{animation:none!important}.water-zone i{display:none}}
