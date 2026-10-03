@@ -98,3 +98,19 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .modal .photo-wall .shot img{max-height:calc(100vh - 330px)!important}
 .modal .photo-wall .shot figcaption{bottom:2px!important;color:#555!important;font-size:11px!important;opacity:1!important;white-space:nowrap!important}
 
+
+/* welcome motion study */
+.welcome{--mx:0px;--my:0px;background-position:calc(50% + var(--mx)) calc(50% + var(--my))!important;transition:background-position .25s ease-out!important}
+.welcome-notes{position:absolute;right:7vw;bottom:16%;display:flex;flex-direction:column;gap:14px;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#3b342e;opacity:0;transform:translateY(10px) rotate(-2deg);animation:noteReveal .8s .7s ease forwards}
+.welcome-notes span:last-child{color:#bd4836;transform:translateX(18px)}
+.focus-mark{position:absolute;right:17%;top:30%;width:clamp(90px,10vw,160px);aspect-ratio:1;border:1px solid #3b342e66;opacity:0;transform:scale(.86);animation:focusReveal .9s 1.2s ease forwards;pointer-events:none}
+.focus-mark:before,.focus-mark:after{content:'';position:absolute;background:#3b342e99}
+.focus-mark:before{width:140%;height:1px;left:-20%;top:50%}.focus-mark:after{height:140%;width:1px;top:-20%;left:50%}
+.welcome-enter:after{content:'';position:absolute;left:0;right:18px;bottom:-8px;height:1px;background:#bd4836;transform:scaleX(0);transform-origin:left;transition:transform .45s ease}
+.welcome-enter:hover:after{transform:scaleX(1)}
+@keyframes noteReveal{to{opacity:.78;transform:translateY(0) rotate(-2deg)}}@keyframes focusReveal{to{opacity:.36;transform:scale(1)}}
+.welcome.exposing .welcome-notes,.welcome.exposing .focus-mark{animation:exposureJitter .45s ease both}
+@keyframes exposureJitter{50%{opacity:1;transform:translate(5px,-3px) skewX(-2deg);filter:brightness(1.5)}}
+@media(max-width:700px){.welcome-notes{right:8vw;bottom:16%;font-size:8px}.focus-mark{right:10%;top:28%}}
+@media(prefers-reduced-motion:reduce){.welcome{transition:none!important}.welcome-notes,.focus-mark{animation:none;opacity:.7;transform:none}}
+
