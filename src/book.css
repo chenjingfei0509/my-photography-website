@@ -54,3 +54,6 @@
 
 .book-host .edge-right::before{inset:4% -40% 4% -14%;background:radial-gradient(ellipse at left center,rgba(40,32,23,.12),rgba(40,32,23,.035) 35%,transparent 72%);filter:blur(7px)}
 
+
+.book-host .edge-left::before,.book-host .edge-right::before{inset:4% -28% 4% -28%;background:radial-gradient(ellipse at center,rgba(40,32,23,.105) 0%,rgba(40,32,23,.045) 28%,rgba(40,32,23,.018) 48%,transparent 74%);filter:blur(9px);transform:none!important}
+
