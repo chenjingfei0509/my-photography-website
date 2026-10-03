@@ -134,3 +134,9 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .leaf-zone.near:after{opacity:1}
 .water-zone:after{content:'';position:absolute;left:12%;right:12%;bottom:12%;height:34%;border-radius:50%;border:1px solid rgba(180,235,238,.35);opacity:0;transform:scale(.95);transition:opacity .35s,transform .35s}
 .water-zone.near:after{opacity:1;transform:scale(1);box-shadow:0 0 24px rgba(153,224,230,.2)}
+/* keep the handwritten welcome title above the poster */
+.welcome .welcome-copy{display:flex!important;z-index:4;color:#2f2924;text-shadow:0 1px 0 rgba(255,255,255,.25)}
+.welcome .welcome-copy span,.welcome .welcome-copy strong,.welcome .welcome-copy i{position:relative;z-index:4}
+.leaf-zone.near{filter:drop-shadow(0 0 14px rgba(170,194,102,.38));animation:leafSway .7s ease-in-out infinite alternate!important}
+.water-zone.near{background:radial-gradient(ellipse at 50% 65%,rgba(150,225,232,.22),transparent 62%);animation:waterPulse 1.8s ease-in-out infinite}
+@keyframes waterPulse{50%{filter:brightness(1.08) saturate(1.12)}}
