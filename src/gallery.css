@@ -127,3 +127,5 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 @keyframes waterShimmer{50%{transform:translateX(2%) scaleY(1.04);opacity:.9}}
 @keyframes ripple{to{width:170px;height:55px;opacity:0;transform:translate(-50%,-50%) scale(1)}}
 @media(prefers-reduced-motion:reduce){.leaf-zone.near,.water-zone.near:before,.water-zone i{animation:none!important}.water-zone i{display:none}}
+/* Poster already contains its archive typography; avoid duplicate overlays. */
+.welcome .archive,.welcome .welcome-notes{display:none!important}
