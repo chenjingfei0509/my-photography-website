@@ -129,3 +129,8 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 @media(prefers-reduced-motion:reduce){.leaf-zone.near,.water-zone.near:before,.water-zone i{animation:none!important}.water-zone i{display:none}}
 /* Poster already contains its archive typography; avoid duplicate overlays. */
 .welcome .archive,.welcome .welcome-notes{display:none!important}
+/* stronger, visible local motion cues */
+.leaf-zone:after{content:'';position:absolute;right:8%;top:12%;width:42%;height:32%;border-radius:50%;background:radial-gradient(ellipse,rgba(188,205,110,.18),transparent 68%);opacity:0;transition:opacity .35s}
+.leaf-zone.near:after{opacity:1}
+.water-zone:after{content:'';position:absolute;left:12%;right:12%;bottom:12%;height:34%;border-radius:50%;border:1px solid rgba(180,235,238,.35);opacity:0;transform:scale(.95);transition:opacity .35s,transform .35s}
+.water-zone.near:after{opacity:1;transform:scale(1);box-shadow:0 0 24px rgba(153,224,230,.2)}
