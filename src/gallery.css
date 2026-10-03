@@ -140,3 +140,9 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .leaf-zone.near{filter:drop-shadow(0 0 14px rgba(170,194,102,.38));animation:leafSway .7s ease-in-out infinite alternate!important}
 .water-zone.near{background:radial-gradient(ellipse at 50% 65%,rgba(150,225,232,.22),transparent 62%);animation:waterPulse 1.8s ease-in-out infinite}
 @keyframes waterPulse{50%{filter:brightness(1.08) saturate(1.12)}}
+/* handwritten title treatment */
+.welcome .welcome-copy{left:7vw!important;top:19%!important;display:flex!important;align-items:flex-start;line-height:.9!important;font-family:"Segoe Print","Bradley Hand",cursive!important;font-size:clamp(46px,7vw,92px)!important;letter-spacing:-.05em!important}
+.welcome .welcome-copy span{font-family:"Segoe Print","Bradley Hand",cursive!important;font-size:.72em!important;transform:rotate(-4deg);margin-left:1.2vw}
+.welcome .welcome-copy strong{font-family:"Segoe Print","Bradley Hand",cursive!important;font-size:1.35em!important;color:#b63b27!important;font-style:italic!important;transform:rotate(-3deg);margin-top:.08em;margin-left:2vw;white-space:nowrap}
+.welcome .welcome-copy i{font-family:"DM Mono",monospace!important;font-size:10px!important;color:#3b342e!important;letter-spacing:.12em!important;margin:1.5em 0 0 3vw!important}
+.welcome .water-zone{display:none!important}
