@@ -150,3 +150,12 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 .welcome .welcome-copy{top:28%!important;font-size:clamp(58px,9vw,120px)!important}
 .welcome-enter{padding:16px 24px!important;font-size:12.5px!important}
 @media(max-width:700px){.welcome .welcome-copy{top:23%!important;font-size:clamp(48px,14vw,78px)!important}.welcome-enter{padding:15px 22px!important;font-size:12px!important}}
+/* portfolio loading screen */
+body.is-loading{overflow:hidden!important}
+.loading-screen{position:fixed;inset:0;z-index:200;background:#eee8dc;color:#24201c;display:grid;place-items:center;opacity:1;transition:transform .8s cubic-bezier(.7,0,.2,1),opacity .5s ease}
+.loading-screen.is-done{transform:translateY(-100%);opacity:0;pointer-events:none}
+.loading-line{position:absolute;top:7vh;bottom:7vh;left:50%;width:1px;background:#24201c22;transform:translateX(-50%)}
+.loading-line i{position:absolute;left:0;top:0;width:1px;height:var(--progress,0%);background:#24201c;display:block;transition:height .18s linear}
+.loading-line i:after{content:'';position:absolute;left:50%;bottom:0;width:7px;height:7px;border-radius:50%;background:#24201c;transform:translate(-50%,50%)}
+.loading-percent{position:absolute;left:calc(50% + 14px);top:calc(7vh + var(--progress,0%));transform:translateY(-50%);font:12px 'DM Mono',monospace;letter-spacing:.1em;transition:top .18s linear}
+@media(prefers-reduced-motion:reduce){.loading-screen{transition:opacity .25s}.loading-line i,.loading-percent{transition:none}}
