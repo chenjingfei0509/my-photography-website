@@ -173,3 +173,5 @@ body.is-loading{overflow:hidden!important}
 .welcome-reveal .welcome-copy span,.welcome-reveal .welcome-copy strong,.welcome-reveal .welcome-copy i{animation:none;opacity:0;clip-path:inset(0 100% 0 0)}
 .welcome-reveal .welcome-copy span{animation:handwrite .7s .2s ease forwards}.welcome-reveal .welcome-copy strong{animation:handwrite .85s .65s ease forwards}.welcome-reveal .welcome-copy i{animation:handwrite .5s 1.25s ease forwards}
 @media(prefers-reduced-motion:reduce){.loading-screen.is-opening .loading-panel-left,.loading-screen.is-opening .loading-panel-right{animation-duration:.45s}.welcome-reveal .welcome-copy span{animation-delay:0s}.welcome-reveal .welcome-copy strong{animation-delay:.12s}.welcome-reveal .welcome-copy i{animation-delay:.24s}}
+/* replay the title after the split reveal, with a clean handwritten entrance */
+.welcome-reveal .welcome-copy span,.welcome-reveal .welcome-copy strong,.welcome-reveal .welcome-copy i{animation-fill-mode:both!important;will-change:opacity,clip-path,transform}
