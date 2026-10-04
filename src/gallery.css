@@ -159,3 +159,17 @@ body.is-loading{overflow:hidden!important}
 .loading-line i:after{content:'';position:absolute;left:50%;bottom:0;width:7px;height:7px;border-radius:50%;background:#24201c;transform:translate(-50%,50%)}
 .loading-percent{position:absolute;left:calc(50% + 14px);top:calc(7vh + var(--progress,0%));transform:translateY(-50%);font:12px 'DM Mono',monospace;letter-spacing:.1em;transition:top .18s linear}
 @media(prefers-reduced-motion:reduce){.loading-screen{transition:opacity .25s}.loading-line i,.loading-percent{transition:none}}
+/* split-panel loading transition */
+.loading-screen{display:block;perspective:1200px;overflow:hidden;transition:none!important;background:transparent}
+.loading-panel{position:absolute;top:0;bottom:0;width:50.1%;background:#eee8dc;z-index:1;box-shadow:inset 0 0 24px rgba(45,38,28,.08)}
+.loading-panel-left{left:0;transform-origin:right center}.loading-panel-right{right:0;transform-origin:left center}
+.loading-line,.loading-percent{z-index:3}
+.loading-screen.is-opening .loading-panel-left{animation:openLeft 1s cubic-bezier(.77,0,.175,1) forwards}
+.loading-screen.is-opening .loading-panel-right{animation:openRight 1.08s cubic-bezier(.77,0,.175,1) forwards}
+.loading-screen.is-opening .loading-line,.loading-screen.is-opening .loading-percent{animation:lineAway .18s ease forwards}
+@keyframes openLeft{to{transform:translateX(-102%) rotateY(-3deg)}}
+@keyframes openRight{to{transform:translateX(102%) rotateY(3deg)}}
+@keyframes lineAway{to{transform:scaleY(0);opacity:0}}
+.welcome-reveal .welcome-copy span,.welcome-reveal .welcome-copy strong,.welcome-reveal .welcome-copy i{animation:none;opacity:0;clip-path:inset(0 100% 0 0)}
+.welcome-reveal .welcome-copy span{animation:handwrite .7s .2s ease forwards}.welcome-reveal .welcome-copy strong{animation:handwrite .85s .65s ease forwards}.welcome-reveal .welcome-copy i{animation:handwrite .5s 1.25s ease forwards}
+@media(prefers-reduced-motion:reduce){.loading-screen.is-opening .loading-panel-left,.loading-screen.is-opening .loading-panel-right{animation-duration:.45s}.welcome-reveal .welcome-copy span{animation-delay:0s}.welcome-reveal .welcome-copy strong{animation-delay:.12s}.welcome-reveal .welcome-copy i{animation-delay:.24s}}
