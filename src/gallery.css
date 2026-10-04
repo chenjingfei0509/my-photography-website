@@ -182,3 +182,7 @@ body.is-loading{overflow:hidden!important}
 @keyframes welcomeWriteIn{from{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-12px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
 .welcome-enter{left:7vw!important;top:58%!important;bottom:auto!important}
 @media(max-width:700px){.welcome-enter{left:8vw!important;top:55%!important;bottom:auto!important}}
+/* use the edited poster typography and restore the earlier button placement */
+.welcome .welcome-copy,.welcome .archive,.welcome .welcome-notes{display:none!important}
+.welcome-enter{left:6.5vw!important;top:auto!important;bottom:12%!important}
+@media(max-width:700px){.welcome-enter{left:8vw!important;top:auto!important;bottom:10%!important}}
