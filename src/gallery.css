@@ -175,3 +175,10 @@ body.is-loading{overflow:hidden!important}
 @media(prefers-reduced-motion:reduce){.loading-screen.is-opening .loading-panel-left,.loading-screen.is-opening .loading-panel-right{animation-duration:.45s}.welcome-reveal .welcome-copy span{animation-delay:0s}.welcome-reveal .welcome-copy strong{animation-delay:.12s}.welcome-reveal .welcome-copy i{animation-delay:.24s}}
 /* replay the title after the split reveal, with a clean handwritten entrance */
 .welcome-reveal .welcome-copy span,.welcome-reveal .welcome-copy strong,.welcome-reveal .welcome-copy i{animation-fill-mode:both!important;will-change:opacity,clip-path,transform}
+/* final welcome title replay and balanced control placement */
+.welcome-reveal .welcome-copy span{animation:welcomeWriteIn .75s .15s ease both!important}
+.welcome-reveal .welcome-copy strong{animation:welcomeWriteIn .9s .65s ease both!important}
+.welcome-reveal .welcome-copy i{animation:welcomeWriteIn .55s 1.35s ease both!important}
+@keyframes welcomeWriteIn{from{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-12px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:none}}
+.welcome-enter{left:7vw!important;top:58%!important;bottom:auto!important}
+@media(max-width:700px){.welcome-enter{left:8vw!important;top:55%!important;bottom:auto!important}}
