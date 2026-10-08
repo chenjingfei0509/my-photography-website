@@ -188,3 +188,13 @@ body.is-loading{overflow:hidden!important}
 @media(max-width:700px){.welcome-enter{left:8vw!important;top:auto!important;bottom:10%!important}}
 /* keep the theme selector header minimal */
 body:not(.welcoming) header .mark,body:not(.welcoming) header .hint{display:none!important}
+/* about profile page */
+.section-label span{display:none!important}
+header .about{position:absolute;right:5vw;top:50%;transform:translateY(-50%);font:11px 'DM Mono',monospace;letter-spacing:.14em}
+.about-panel{position:fixed;inset:0;z-index:150;background:#f8f7f3;color:#202124;padding:10vh 8vw;transform:translateY(100%);transition:transform .7s cubic-bezier(.7,0,.2,1);font-family:Georgia,'Microsoft YaHei',serif}
+.about-panel.is-open{transform:translateY(0)}
+.about-panel h2{font:400 clamp(46px,7vw,92px)/.9 Georgia,serif;margin:0 0 28px;letter-spacing:.02em}
+.about-kicker{color:#8b877f;font:14px Georgia,serif;margin-bottom:48px}
+.about-copy{font:clamp(18px,2.2vw,30px)/1.7 Georgia,'Microsoft YaHei',serif;color:#57534d}.about-copy p{margin:0}.about-contact{margin-top:48px!important}.about-contact a{color:inherit;text-decoration:none;border-bottom:1px solid #999}.about-close{position:absolute;right:5vw;top:6vh;border:0;background:none;font:28px Georgia;cursor:pointer;color:#333}
+.about-close:focus-visible{outline:2px solid #333;outline-offset:5px}
+@media(max-width:700px){.about-panel{padding:12vh 8vw}.about-kicker{margin-bottom:36px}.about-copy{font-size:18px}.about-contact{margin-top:34px!important}}
