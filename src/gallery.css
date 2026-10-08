@@ -186,3 +186,5 @@ body.is-loading{overflow:hidden!important}
 .welcome .welcome-copy,.welcome .archive,.welcome .welcome-notes{display:none!important}
 .welcome-enter{left:6.5vw!important;top:auto!important;bottom:12%!important}
 @media(max-width:700px){.welcome-enter{left:8vw!important;top:auto!important;bottom:10%!important}}
+/* keep the theme selector header minimal */
+body:not(.welcoming) header .mark,body:not(.welcoming) header .hint{display:none!important}
