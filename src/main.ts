@@ -63,4 +63,3 @@ wall.addEventListener('click',e=>{if(modal.classList.contains('is-immersive') &&
 
 wall.addEventListener('click',e=>{if(movedDuringDrag)return;const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot||modal.classList.contains('is-immersive'))return;e.preventDefault();e.stopPropagation();activePage=Number(shot.dataset.index||activePage);modal.classList.add('is-immersive');renderPage()},true)
 
-wall.addEventListener('pointerup',e=>{if(movedDuringDrag)return;const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot||modal.classList.contains('is-immersive'))return;activePage=Number(shot.dataset.index||activePage);modal.classList.add('is-immersive');renderPage()},true)

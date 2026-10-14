@@ -130,6 +130,18 @@ body{background:#fff!important}.rooms{background:#fff!important;min-height:100vh
 @media(max-width:700px){.modal:not(.is-immersive) .photo-wall{height:calc(100vh - 190px)!important;min-height:300px!important;padding:0 8vw!important;scroll-padding-inline:8vw!important;gap:18px!important}.modal:not(.is-immersive) .photo-wall .shot img{max-width:78vw!important;max-height:calc(100vh - 260px)!important}.modal.is-immersive .book-stage>.book-nav{opacity:1!important;pointer-events:auto!important;width:44px!important;height:44px!important}.modal.is-immersive .photo-wall .shot img{max-width:94vw!important;max-height:86vh!important}}
 @media(prefers-reduced-motion:reduce){.modal:not(.is-immersive) .photo-wall{scroll-behavior:auto!important}.modal:not(.is-immersive) .photo-wall .shot,.modal .close,.modal.is-immersive .book-stage>.book-nav{transition:none!important}}
 
+/* Editorial modal header and full-colour filmstrip cards. */
+.modal:not(.is-immersive){padding:34px 5vw 34px!important}
+.modal:not(.is-immersive) .modal-head{max-width:1200px!important;margin:0 auto 18px!important;display:grid!important;grid-template-columns:auto 1fr!important;grid-template-areas:'index title' 'index sub'!important;column-gap:22px!important;align-items:end!important}
+.modal:not(.is-immersive) .modal-index{grid-area:index!important;align-self:start!important;padding-top:6px!important;color:#d7ad57!important;font:11px monospace!important;letter-spacing:.18em!important}
+.modal:not(.is-immersive) .modal-title{grid-area:title!important;margin:0!important;color:#202124!important;font:400 clamp(30px,4.5vw,58px)/.95 Georgia,serif!important;letter-spacing:-.03em!important}
+.modal:not(.is-immersive) .modal-sub{grid-area:sub!important;display:block!important;margin:8px 0 0!important;color:#777!important;font:11px monospace!important;letter-spacing:.12em!important}
+.modal:not(.is-immersive) .photo-wall .shot,.modal:not(.is-immersive) .photo-wall .shot:not(.is-current){opacity:1!important;filter:none!important;transform:scale(.96)!important}
+.modal:not(.is-immersive) .photo-wall .shot.is-current{transform:scale(1)!important;opacity:1!important;filter:none!important}
+.modal:not(.is-immersive) .photo-wall .shot img{filter:none!important;opacity:1!important}
+.modal.is-immersive .book-stage>.book-nav{opacity:1!important;pointer-events:auto!important}
+@media(max-width:700px){.modal:not(.is-immersive){padding:24px 14px 24px!important}.modal:not(.is-immersive) .modal-head{column-gap:12px!important}.modal:not(.is-immersive) .modal-title{font-size:clamp(28px,8vw,42px)!important}}
+
 
 /* welcome motion study */
 .welcome{--mx:0px;--my:0px;background-position:calc(50% + var(--mx)) calc(50% + var(--my))!important;transition:background-position .25s ease-out!important}
