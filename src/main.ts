@@ -31,8 +31,13 @@ createBook(grid,rooms,openRoom)
 grid.addEventListener('click',e=>{const card=(e.target as HTMLElement).closest<HTMLElement>('.room');if(card)openRoom(card.dataset.room!)})
 grid.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const card=(e.target as HTMLElement).closest<HTMLElement>('.room');if(card){e.preventDefault();openRoom(card.dataset.room!)}}})
 const about=document.querySelector<HTMLElement>('.about-panel')!,aboutButton=document.querySelector<HTMLButtonElement>('.about')!,projectsButton=document.querySelector<HTMLButtonElement>('.projects')!;const aboutSection=document.querySelector<HTMLElement>('#about-section')!,roomsSection=document.querySelector<HTMLElement>('.rooms')!;aboutButton.addEventListener('click',()=>{aboutSection.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});aboutButton.blur()});projectsButton.addEventListener('click',()=>{roomsSection.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});projectsButton.blur()});about.querySelector('.about-close')!.addEventListener('click',()=>{about.classList.remove('is-open');about.setAttribute('aria-hidden','true')});document.querySelector('.prev')!.addEventListener('click',()=>movePage(-1));document.querySelector('.next')!.addEventListener('click',()=>movePage(1));document.querySelector('.close')!.addEventListener('click',()=>{modal.classList.remove('is-open','is-immersive');modal.setAttribute('aria-hidden','true');document.body.classList.remove('locked')})
-wall.addEventListener('pointerdown',e=>{dragging=true;movedDuringDrag=false;startX=e.clientX;wall.setPointerCapture(e.pointerId);wall.style.setProperty('--drag-x','0px')})
-wall.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-startX;if(Math.abs(dx)>8)movedDuringDrag=true;wall.scrollLeft-=e.movementX||0;wall.style.setProperty('--drag-x',`${dx}px`);wall.style.setProperty('--drag-rotate',`${Math.max(-2,Math.min(2,dx/80))}deg`)})
+let galleryScroll=0
+function exitSingle(){modal.classList.remove('is-immersive');wall.scrollLeft=galleryScroll;wall.focus({preventScroll:true})}
+// Handle the inner viewer first; its close must not close the gallery behind it.
+modal.querySelector('.close')!.addEventListener('click',e=>{if(modal.classList.contains('is-immersive')){e.stopImmediatePropagation();exitSingle()}},true)
+wall.addEventListener('dragstart',e=>e.preventDefault())
+wall.addEventListener('pointerdown',e=>{if(e.button!==0)return;dragging=true;movedDuringDrag=false;startX=e.clientX})
+wall.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-startX;if(Math.abs(dx)>8){movedDuringDrag=true;if(e.pointerType==='mouse'&&!wall.hasPointerCapture(e.pointerId))wall.setPointerCapture(e.pointerId)}if(movedDuringDrag&&e.pointerType==='mouse'&&!modal.classList.contains('is-immersive'))wall.scrollLeft-=e.movementX||0})
 function endDrag(e:PointerEvent){if(!dragging)return;dragging=false;const dx=e.clientX-startX;wall.style.setProperty('--drag-x','0px');wall.style.setProperty('--drag-rotate','0deg');if(Math.abs(dx)>55)movePage(dx<0?1:-1)}
 wall.addEventListener('pointerup',endDrag);wall.addEventListener('pointercancel',endDrag)
 window.addEventListener('keydown',e=>{if(modal.classList.contains('is-open')){if(e.key==='ArrowRight')movePage(1);if(e.key==='ArrowLeft')movePage(-1);if(e.key==='Home'&&activeRoom){activePage=0;renderPage()}if(e.key==='End'&&activeRoom){activePage=activeRoom.photos.length-1;renderPage()}if(e.key==='Escape')document.querySelector<HTMLButtonElement>('.close')!.click()}})
@@ -59,7 +64,16 @@ window.addEventListener('keydown',e=>{if(modal.classList.contains('is-open')){if
 
 
 
-wall.addEventListener('click',e=>{if(modal.classList.contains('is-immersive') && e.target===wall){modal.classList.remove('is-immersive');return}if(movedDuringDrag)return;const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot)return;if(!modal.classList.contains('is-immersive')){activePage=Number(shot.dataset.index||activePage);modal.classList.add('is-immersive');renderPage()}})
-
-wall.addEventListener('click',e=>{if(movedDuringDrag)return;const shot=(e.target as HTMLElement).closest<HTMLElement>('.shot');if(!shot||modal.classList.contains('is-immersive'))return;e.preventDefault();e.stopPropagation();activePage=Number(shot.dataset.index||activePage);modal.classList.add('is-immersive');renderPage()},true)
+wall.addEventListener('click',e=>{
+  if(movedDuringDrag)return
+  const target=e.target as HTMLElement
+  if(modal.classList.contains('is-immersive')){if(target.tagName!=='IMG')exitSingle();return}
+  const shot=target.closest<HTMLElement>('.shot')
+  if(!shot)return
+  galleryScroll=wall.scrollLeft
+  activePage=Number(shot.dataset.index)
+  wall.querySelectorAll('.shot').forEach(el=>el.classList.toggle('is-current',el===shot))
+  modal.classList.add('is-immersive')
+  wall.scrollLeft=0
+})
 
